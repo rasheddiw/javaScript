@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>practice</title>
+	<style type="text/css">
+	div{
+		background-color:#64db59;
+		width:380px;
+		height:200px;
+		margin:0 auto;
+	}
+	</style>
+	<script type="text/javascript">
+	function checknumber(){
+		var cardnumber = document.getElementById("number").value;
+	var cardno = /^(?:3[47][0-9]{13})$/;
+	var ok = cardno.test(cardnumber);
+	if (ok==true){
+		document.write("Thanks using");
+	}
+	else{
+		alert("invalid number");
+	}
+	}
+	
+	
+	</script>
+</head>
+<body>
+	<div>
+		<h1>Input Credit Card Number</h1>
+		<input type="text" id="number" />
+		
+		<button onclick="checknumber()">submit</button>
+	</div>
+</body>
+</html>

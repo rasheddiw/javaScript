@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Email Validation Example</title>
+</head>
+<body>
+
+	Email: <input type="text" name="email" id="txtData">
+	<button onclick="checkEmail()">Check Email</button>
+	<p id="msg"></p>
+
+	<script type="text/javascript">
+		
+		function checkEmail()
+		{
+			var email = document.getElementById("txtData").value;
+			var rex = /^[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}$/;
+
+			var ok = rex.test(email);
+
+			if(ok == true)
+			{
+				document.getElementById("msg").innerHTML="Valid Email";
+			}
+
+			else
+			{
+				document.getElementById("msg").innerHTML="Invalid Email Address";
+			}
+		}
+	</script>
+
+</body>
+</html>
