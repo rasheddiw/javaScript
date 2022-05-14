@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Live total price</title>
+	<style type="text/css">
+	div{
+	margin-top:5px;
+	}
+	</style>
+</head>
+<body>
+	<div>
+		<label for="">Product Price</label>
+		<input type="text" name="price" id="pprice" oninput="liveprice()"/>
+	</div>
+	<div>
+		<label for="">Vat</label>
+		<input type="number" name="vat" id="pvat" oninput="liveprice()"/>
+	</div>
+	<div>
+		<label for="">Delevery Cost</label>
+		<input type="number" name="cost" id="dcost" oninput="liveprice()"/>
+	</div>
+	<hr />
+	<h4>Total Price: <span id="tprice">0</span></h4>
+	<script type="text/javascript">
+		function liveprice(){
+		var product = document.getElementById("pprice").value;
+		var vat = document.getElementById("pvat").value;
+		var cost = document.getElementById("dcost").value;
+		var total = +product+ +vat+ +cost;
+		document.getElementById("tprice").innerHTML=total;
+		}
+		
+	</script>
+	
+	
+	
+	
+</body>
+</html>
