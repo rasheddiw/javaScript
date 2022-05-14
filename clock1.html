@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Clock1</title>
+</head>
+<h1 id="alarm"><h1>
+<body>
+	<script>
+	window.onload=function(){
+		time()
+	}
+	function time(){
+	var today = new Date();
+	var h = today.getHours();
+	var m = today.getMinutes();
+	var s = today.getSeconds();
+	
+	h=checkTime(h);
+	m=checkTime(m);
+	s=checkTime(s);
+	
+	document.getElementById("clock").innerHTML=h+":"+m+":"+s;
+	setInterval(time,1000);	
+	}
+	function checkTime(t){
+	if(t<10){
+	t="0"+t;
+	}
+	return t;
+	}
+	
+		
+	</script>
+	Time:<span id="clock"></span>
+
+</body>
+</html>

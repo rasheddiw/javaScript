@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Clock</title>
+</head>
+<h1 id="alarm"><h1>
+<body>
+	<script>
+	window.onload=function chalu(){
+	
+		var today = new Date();
+		var h = today.getHours();
+		var m = today.getMinutes();
+		var s = today.getSeconds();
+		document.getElementById("clock").innerHTML=h+":"+m+":"+s;
+		setInterval(chalu,1000)}
+		
+	</script>
+	Time:<span id="clock"></span>
+
+</body>
+</html>
