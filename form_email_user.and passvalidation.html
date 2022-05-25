@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function validateForm()
+		{
+			var name1 = document.getElementById('fname').value;
+			var name2 = document.getElementById('lname').value;
+			var mail = document.getElementById("email").value;
+			var rex = /^[a-z0-9]+[@]+[a-z0-9]+[.]+[a-z]{3}$/;
+			var ok = rex.test(mail);
+			var pw1 = document.getElementById('pwd1').value;
+			var pw2 = document.getElementById('pwd2').value;
+
+			if(name1 == "")
+			{
+				document.getElementById("blankmsg").innerHTML="**Fill the First name";
+			}
+			if(!isNaN(name1))
+			{
+				document.getElementById("blankmsg").innerHTML="**Only Characters are allowed";
+				return false;
+			}
+			if(!isNaN(name2))
+			{
+				document.getElementById("charMsg").innerHTML="**Only Characters are allowed";
+				return false;
+			}
+			if(ok == true){
+				document.getElementById("cmail").innerHTML="email is ok"
+				return true;
+			}
+			if(ok == false){
+				document.getElementById("cmail").innerHTML="email is not ok"
+				return false;
+			}
+
+			if(pw1 == " ")
+			{
+				document.getElementById("message1").innerHTML="**Fill password";
+			}
+			if(pw2 == " ")
+			{
+				document.getElementById("message2").innerHTML="**Confirm your password";
+			}
+			if(pw1.length < 8){
+				document.getElementById('message1').innerHTML="**Password length must be atleast 8 Characters";
+				return false;
+			}
+			if(pw1.length > 15){
+				document.getElementById('message1').innerHTML="**Password length should not be more than 15 Characters";
+				return false;
+			}
+			if(pw1 != pw2){
+				document.getElementById('message2').innerHTML="**Password are not same";
+				return false;
+			}
+			else
+			{
+				alert("Your Registration Id created Successfully");
+				document.write("Form Data has been Submitted")
+			}
+
+
+
+		}
+	</script>
+</head>
+<body>
+	<h1 style="color:green;">US Software Registration Form</h1>
+	<h3>Vareify User Registration</h3>
+
+	<label>First Name*</label><br>
+	<input type="text" name="fname" id="fname" value="">
+	<span id="blankmsg" style="color:red"></span><br>
+
+	<label>Last Name*</label><br>
+	<input type="text" name="lname" id="lname" value="">
+	<span id="charMsg" style="color:red"></span><br>
+
+	<label>Email*</label><br>
+	<input type="text" name="mail" id="email">
+	<span id="cmail" style="color:red"></span><br>
+
+	<label>Password*</label><br>
+	<input type="password" name="pwd1" id="pwd1" value="">
+	<span id="message1" style="color:red"></span><br>
+
+	<label>Confirm Password*</label><br>
+	<input type="password" name="pwd2" id="pwd2" value="">
+	<span id="message2" style="color:red"></span><br>
+
+	<input type="submit" name="submit" value="Send" onclick="validateForm()">
+	<input type="reset" name="reset" value="Cancel">
+
+
+
+
+
+	
+
+
+</body>
+</html>

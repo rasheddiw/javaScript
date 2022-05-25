@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Login validation</title>
+</head>
+<body>
+	<h2>Login Here</h2>
+	<label for="">User Name:</label><br>
+	<input type="text" name="" id="username"/><br>
+	<label for="">Passward:</label><br>
+	<input type="Password" name="password"id="password"/><br>
+	<input type="button" id="disable" value="Log in" onclick="pagevalidation()"/><br>
+	<p>
+		নোটঃ সঠিক ইউুজার পাসওয়ার্ড দিলে লগ ইন হবে েএবং নতুন উইন্ডোতে ওপেন  হবে ভুল দিলে হবে না।
+		তিন বারের বেশী ভুল পাসওয়ার্ড দিলে ৫ সেকেন্ড  বা নিদি্রষ্ট সময় পর‌্যন্ত ডিসএ্যাবল থাকবে।
+	</p>
+	
+	<script type="text/javascript">
+	var attempt = 3;
+	function reload(){
+	location.reload();
+	}
+	function pagevalidation(){
+
+	var username = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	if (username == "rashedul" && password== "rashed"){
+	alert("Thanks for login");
+	window.location="http://www.facebook.com";
+	return true;
+	}
+	else{
+	attempt--;
+	alert("Invalid user name or Password. you have" +attempt+ "attempts");
+	if (attempt == 0){
+	document.getElementById("username").disabled=true;
+	document.getElementById("password").disabled=true;
+	document.getElementById("disable").disabled=true;
+	setTimeout (reload, 5000);
+	}
+	}
+	}
+	
+	
+	
+	
+	
+	</script>
+	
+</body>
+</html>

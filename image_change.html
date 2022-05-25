@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Image Changing</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		var image_track = 'orange';
+
+		function change()
+		{
+			var image = document.getElementById("circle");
+			if(image_track == 'orange')
+			{
+				image.src='images/blue.png';
+				image_track = 'blue';
+			}
+			else
+			{
+				image.src='images/orange.png';
+				image_track='orange';
+			}
+		
+		}
+
+		var timer = setInterval('change()',1000);
+
+		function stop()
+		{
+			clearInterval(timer);
+		}
+	</script>
+
+	<img src="images/orange.png" alt="circle" id="circle" onclick="stop()">
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Pass data to windows</title>
+
+    <script type="text/javascript">
+        
+        function  dyn_window() 
+        {
+            var title = "My Title";
+            var name = document.f.txtName.value;
+            var address = document.f.txtAddress.value;
+            var courses = document.f.txtCourses.value;
+            var sex = "";
+            var subjects = "";
+
+           /* var genderCheck = document.f.rdoSex;
+            for(i = 0; i<genderCheck.length; i++)
+            {
+                if(genderCheck[i].checked)
+                {
+                    sex = genderCheck[i].value;
+                }
+            } ata na dileo hobe*/
+
+            var subject_check = document.f.chkSubject;
+
+            for(j = 0; j<subject_check.length; j++)
+            {
+                if(subject_check[j].checked)
+                {
+                    subjects += subject_check[j].value;
+                }
+            }
+
+window.open('','','width=400,height=350').document.write(`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>${title}</title>
+</head>
+<body>
+
+    <h3>Name:${name}</h3>
+    <p>Address: ${address}</p>
+    <p> Course:${courses}</p>
+       <p>Gender:${sex}</p>
+    <p>Subject:${subjects}</p>
+
+    
+    <button onclick="self.close()">Close</button>
+    <button onclick="self.print()">print</button>
+
+</body>
+</html>
+            `)
+
+            }
+
+        
+    </script>
+</head>
+<body>
+    
+    <form method="POST" name="f" style="width: 200px; margin: 0px auto; border: 1px solid black; padding: 10px;">
+        
+        <div>
+            Name<br>
+            <input type="text" name="txtName">
+        </div>
+
+        <div>
+            Address<br>
+            <textarea name="txtAddress"></textarea>
+        </div>
+
+        <div>
+            Courses<br>
+            <select name="txtCourses">
+                <option value="MBA">M.B.A</option>
+                <option value="BBA">B.B.A</option>
+                <option value="CSE">CSE</option>
+                <option value="EEE">EEE</option>
+            </select>
+        </div>
+
+        <div>
+            Sex<br>
+            Male<input type="radio" name="rdoSex" value="male">
+            Female<input type="radio" name="rdoSex" value="female">
+        </div>
+
+        <div>
+            Subject<br>
+            English<input type="checkbox" name="chkSubject" value="English">
+            Bangla<input type="checkbox" name="chkSubject" value="Bangla">
+        </div>
+
+        <div>
+            <input type="button" name="btnObject" value="Submit" onclick="dyn_window()">
+        </div>
+    </form>
+
+</body>
+</html>
